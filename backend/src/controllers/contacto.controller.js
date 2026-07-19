@@ -19,7 +19,8 @@ const enviarMensaje = async (req, res) => {
             telefono,
             correo,
             tipoSolicitud,
-            mensaje
+            mensaje,
+            archivo: req.file ? req.file.path : ""
         });
         res.status(201).json({
             mensaje: "Solicitud enviada correctamente.",

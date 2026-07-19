@@ -15,6 +15,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/usuarios", UsuariosRoutes);
 app.use("/api/favoritos", favoritosRoutes);
 app.use("/api/contacto", contactoRoutes);
+app.use("/uploads", express.static("uploads"));
 
 app.use(cors());
 app.use(express.json());
