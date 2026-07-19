@@ -1,3 +1,5 @@
+const dns = require('node:dns');
+dns.setServers(['8.8.8.8', '1.1.1.1']);//solucion temporal error db 
 const mongoose = require("mongoose");
 
 const conectarDB = async () => {
