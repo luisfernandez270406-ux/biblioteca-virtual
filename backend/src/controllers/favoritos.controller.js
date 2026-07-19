@@ -1,6 +1,6 @@
 const Favorito = require("../models/favoritos.model");
 
-const agregarFavorito = async (req, res) => {
+const agregarFavoritos = async (req, res) => {
 
     try {
         const {
@@ -46,4 +46,45 @@ const agregarFavorito = async (req, res) => {
 
 };
 
-module.exports = {agregarFavorito};
+const obtenerFavoritos = async (req, res) => {
+
+    try {
+        const favoritos = await Favorito.find({
+            usuario: req.usuario.id
+        });
+        res.status(200).json({
+            favoritos
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            mensaje: "Error interno del servidor."
+        });
+    }
+};
+const eliminarFavoritos = async (req, res) => {
+
+    try {
+        const { id } = req.params;
+        const favoritoEliminado = await Favorito.findOneAndDelete({
+            _id: id,
+            usuario: req.usuario.id
+        });
+        if (!favoritoEliminado) {
+            return res.status(404).json({
+                mensaje: "Favorito no encontrado."
+            });
+           }
+            res.status(200).json({
+            mensaje: "Favorito eliminado correctamente."
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            mensaje: "Error interno del servidor."
+        });
+    }
+};
+
+module.exports = {agregarFavoritos,obtenerFavoritos,eliminarFavoritos};

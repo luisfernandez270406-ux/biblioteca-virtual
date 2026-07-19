@@ -3,9 +3,11 @@ const express = require("express");
 const router = express.Router();
 
 const verificarToken = require("../middleware/verificarToken");
-const {agregarFavorito} = require("../controllers/favoritos.controller")
+const {agregarFavoritos,obtenerFavoritos,eliminarFavoritos} = require("../controllers/favoritos.controller")
 
-router.post("/", verificarToken, agregarFavorito)
+router.post("/", verificarToken, agregarFavoritos)
+router.get("/", verificarToken, obtenerFavoritos)
+router.delete("/:id", verificarToken, eliminarFavoritos)
 
 
 
