@@ -1,27 +1,49 @@
 const Usuario = require("../models/usuarios.model");
 
-const crearUsuarioPrueba = async (req, res) => {
+const obtenerPerfil = async (req, res) => {
 
     try {
 
-        const usuario = await Usuario.create({
+        const usuario = await Usuario.findById(req.usuario.id);
 
-            nombre: "Luis",
+        if (!usuario) {
 
-            correo: "luis@gmail.com",
+            return res.status(404).json({
 
-            password: "123456",
+                mensaje: "Usuario no encontrado."
 
-            rol: "cliente"
+            });
+
+        }
+
+        res.status(200).json({
+
+            usuario: {
+
+                id: usuario._id,
+
+                nombreCompleto: usuario.nombreCompleto,
+
+                nombreUsuario: usuario.nombreUsuario,
+
+                correo: usuario.correo,
+
+                rol: usuario.rol,
+
+                createdAt: usuario.createdAt
+
+            }
 
         });
 
-        res.status(201).json(usuario);
-
     } catch (error) {
 
+        console.error(error);
+
         res.status(500).json({
-            mensaje: error.message
+
+            mensaje: "Error interno del servidor."
+
         });
 
     }
@@ -29,5 +51,7 @@ const crearUsuarioPrueba = async (req, res) => {
 };
 
 module.exports = {
-    crearUsuarioPrueba
+
+    obtenerPerfil
+
 };

@@ -2,10 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 
-const {
-    crearUsuarioPrueba
-} = require("../controllers/usuarios.controller");
+const verificarToken = require("../middleware/verificarToken");
+const {obtenerPerfil} = require("../controllers/usuarios.controller");
 
-router.post("/prueba", crearUsuarioPrueba);
+
+router.get("/perfil", verificarToken, obtenerPerfil);
 
 module.exports = router;
