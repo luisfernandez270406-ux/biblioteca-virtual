@@ -8,6 +8,7 @@ const UsuariosRoutes = require("./routes/usuarios.route")
 const favoritosRoutes = require("./routes/favoritos.route")
 const contactoRoutes = require("./routes/contacto.route")
 
+app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,8 +18,7 @@ app.use("/api/favoritos", favoritosRoutes);
 app.use("/api/contacto", contactoRoutes);
 app.use("/uploads", express.static("uploads"));
 
-app.use(cors());
-app.use(express.json());
+
 
 
 
