@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Biblioteca - Iniciar sesión</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body class="paginaLogin">
+
+  <main class="contenedorLogin">
+
+    <div class="imagenLogin"></div>
+
+    <div class="panelLogin">
+
+      <div class="logoLogin">
+        <div class="logoLogin__icono" role="img" aria-label="Logo E-Biblioteca"></div>
+        <div class="logoLogin__texto">
+          <span class="logoLogin__nombre">E-BIBLIOTECA</span>
+          <span class="logoLogin__lema">¡Tu biblioteca digital!</span>
+        </div>
+      </div>
+
+      <h1 class="tituloLogin">Iniciar sesión</h1>
+
+      <form id="formLogin">
+
+        <div class="campoLogin">
+          <input
+            type="text"
+            id="nombreUsuario"
+            name="nombreUsuario"
+            placeholder="Nombre de usuario"
+            autocomplete="username"
+            required>
+        </div>
+
+        <div class="campoLogin">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Contraseña"
+            autocomplete="current-password"
+            required>
+        </div>
+
+        <button type="submit" id="btnLogin">Iniciar sesión</button>
+        <div id="mensajeLogin"></div>
+
+      </form>
+
+      <p class="enlaceLogin">
+        <a href="registro.html">¿No tienes cuenta? Regístrate aquí</a>
+      </p>
+      <p class="enlaceLogin">
+        <a href="#">¿Olvidé mi contraseña?</a>
+      </p>
+
+    </div>
+
+  </main>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>

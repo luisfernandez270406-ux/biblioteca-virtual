@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Biblioteca - Inicio</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body class="paginaInicio">
+
+  <header class="navbar">
+    <a href="inicio.html" id="navInicio" class="navbar__logo">
+      <div class="navbar__logoIcono" role="img" aria-label="Logo E-Biblioteca"></div>
+      <span class="navbar__logoTexto">E-BIBLIOTECA</span>
+    </a>
+
+    <nav class="navbar__derecha">
+      <a href="favoritos.html" id="navFavoritos" class="navbar__enlace">
+        <span class="navbar__iconoCorazon" aria-hidden="true"></span>
+        Favoritos
+      </a>
+
+      <div class="navbar__usuario">
+        <button type="button" class="navbar__usuarioToggle">
+          <span class="navbar__iconoUsuario" aria-hidden="true"></span>
+          <span id="nombreUsuario">Usuario</span>
+          <span class="navbar__flecha">▾</span>
+        </button>
+
+        <div class="navbar__dropdown">
+          <a href="perfil.html" id="navPerfil">Mi perfil</a>
+          <button type="button" id="btnCerrarSesion">Cerrar sesión</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="heroInicio">
+      <h1 class="heroInicio__titulo">Descubre tu próxima lectura favorita</h1>
+      <p class="heroInicio__subtitulo">Explora miles de libros desde un solo lugar.</p>
+
+      <form id="formBuscar" class="heroInicio__buscador">
+
+        <input
+            type="text"
+            id="buscador"
+            name="buscador"
+            placeholder="Buscar libros..."
+            autocomplete="off">
+        <button type="submit" id="btnBuscar" aria-label="Buscar">
+        <span class="iconoLupa" aria-hidden="true"></span>
+        </button>
+        </form>
+    </section>
+
+    <section class="contenedorCategorias">
+      <div class="contenedorCategorias__cabecera">
+        <h2>Categorías</h2>
+        <a href="#" class="verTodos">Ver todos ›</a>
+      </div>
+
+      <div class="contenedorCategorias__grid">
+        <a href="#" id="categoriaNovelas" class="categoriaCard">
+          <span class="categoriaCard__icono categoriaCard__icono--novelas" aria-hidden="true"></span>
+          <span class="categoriaCard__nombre">Novelas</span>
+        </a>
+        <a href="#" id="categoriaTecnologia" class="categoriaCard">
+          <span class="categoriaCard__icono categoriaCard__icono--tecnologia" aria-hidden="true"></span>
+          <span class="categoriaCard__nombre">Tecnología</span>
+        </a>
+        <a href="#" id="categoriaRomance" class="categoriaCard">
+          <span class="categoriaCard__icono categoriaCard__icono--romance" aria-hidden="true"></span>
+          <span class="categoriaCard__nombre">Romance</span>
+        </a>
+        <a href="#" id="categoriaCiencia" class="categoriaCard">
+          <span class="categoriaCard__icono categoriaCard__icono--ciencia" aria-hidden="true"></span>
+          <span class="categoriaCard__nombre">Ciencia</span>
+        </a>
+        <a href="#" id="categoriaTerror" class="categoriaCard">
+          <span class="categoriaCard__icono categoriaCard__icono--terror" aria-hidden="true"></span>
+          <span class="categoriaCard__nombre">Terror</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="contenedorCatalogo">
+      <div class="contenedorCatalogo__cabecera">
+        <h2>Explora nuevos libros...</h2>
+        <a href="#" class="verTodos">Ver todos ›</a>
+      </div>
+
+      <div id="contenedorLibros"></div>
+      <div id="mensajeBusqueda"></div>
+    </section>
+
+  </main>
+
+  <footer class="footerInicio">
+    <span>E-Biblioteca &nbsp;© 2026 E-Biblioteca. Todos los derechos reservados.</span>
+    <div class="footerInicio__enlaces">
+      <a href="inicio.html">Inicio</a>
+      <a href="contacto.html" id="navContacto">Contacto</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="../js/inicio.js"></script>
+</body>
+</html>

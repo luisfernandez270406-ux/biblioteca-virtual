@@ -1,0 +1,542 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #1a1a1a;
+}
+
+.paginaLogin {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.contenedorLogin {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Imagen izquierda de fondo */
+.imagenLogin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/imagenes/imagenLogin.jpg');
+  background-size: 50% auto;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-color: #2b3b2b; 
+}
+/* Panel derecho blanco con corte diagonal */
+.panelLogin {
+  position: relative;
+  margin-left: auto;
+  width: 57%;
+  height: 100%;
+  background-color: #ffffff;
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px 40px 110px;
+}
+
+/* Logo */
+.logoLogin {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.logoLogin__icono {
+  width: 150px;
+  height: 150px;
+  background-image: url('../assets/iconos/Logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.logoLogin__texto {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoLogin__nombre {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #3e9b3e;
+  letter-spacing: 0.01em;
+}
+
+.logoLogin__lema {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #9a9a9a;
+}
+
+/* Título */
+.tituloLogin {
+  width: 420px; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+/* Formulario */
+#formLogin,#formRegistro {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campoLogin {
+  margin-bottom: 18px;
+}
+
+.campoLogin input {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 4px;
+  background-color: #d9e2d3;
+  padding: 0 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: #333333;
+  outline: none;
+}
+
+.campoLogin input::placeholder {
+  color: #7c8a76;
+}
+
+/* Botón principal */
+#btnLogin,#btnRegistro {
+  width: 100%;
+  height: 54px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 6px;
+  background-color: #6eba48;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+#btnLogin:hover {
+  background-color: #5aa038;
+}
+
+/* Enlaces inferiores */
+.enlaceLogin {
+  text-align: center;
+  margin-top: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.92rem;
+}
+
+.enlaceLogin a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.enlaceLogin a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .panelLogin {
+    width: 100%;
+    clip-path: none;
+    padding: 30px 24px;
+  }
+  .imagenLogin {
+    display: none;
+  }
+}
+.paginaInicio {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  border-bottom: 1px solid #e4e4e4;
+}
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.navbar__logoIcono {
+  width: 32px;
+  height: 32px;
+  background-image: url('../assets/iconos/Logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.navbar__logoTexto {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #3e9b3e;
+}
+.navbar__derecha {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.navbar__enlace {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+}
+
+.navbar__iconoCorazon {
+  width: 20px; 
+  height: 20px;
+  background-image: url('../assets/iconos/corazon_icono.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+
+.navbar__iconoCorazon::before {
+  display: none; 
+}
+
+.navbar__usuario {
+  position: relative;
+}
+
+.navbar__usuarioToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  font-family: inherit;
+}
+
+.navbar__iconoUsuario {
+  width: 20px;  
+  height: 20px;
+  background-image: url('../assets/iconos/usuario_icono.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  background-color: transparent; 
+  border-radius: 0;              
+  border: none;                   
+}
+
+.navbar__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  background: #ffffff;
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.navbar__usuario:hover .navbar__dropdown,
+.navbar__usuario:focus-within .navbar__dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__dropdown a,
+.navbar__dropdown button {
+  padding: 12px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.navbar__dropdown a:hover,
+.navbar__dropdown button:hover {
+  background-color: #f4f4f4;
+}
+
+.heroInicio {
+  background-color: #EEF8E8;
+  background-image: 
+    linear-gradient(rgba(238, 248, 232, 0.9), rgba(238, 248, 232, 0.9)), 
+     url('../assets/imagenes/PatronLibro.png');
+  background-repeat: repeat;
+  background-size: 550px auto;
+  text-align: center;
+  padding: 56px 24px 46px;
+}
+
+.heroInicio__titulo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.heroInicio__subtitulo {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-bottom: 26px;
+}
+
+.heroInicio__buscador {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background-color: #d3ddce;
+  border-radius: 999px;
+  padding: 6px 8px 6px 24px;
+}
+
+.heroInicio__buscador input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 1rem;
+  color: #333333;
+  font-family: inherit;
+}
+
+.heroInicio__buscador input::placeholder {
+  color: #6f7c68;
+}
+
+#btnBuscar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background-color: #c3d0bc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.iconoLupa {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  transform: translate(-2px, -2px); 
+}
+
+.iconoLupa::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 6px;
+  background-color: #333333;
+  bottom: -4px; 
+  right: -4px;
+  transform: rotate(-45deg);
+}
+.contenedorCategorias {
+  padding: 34px 40px 10px;
+}
+
+.contenedorCategorias__cabecera,
+.contenedorCatalogo__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.contenedorCategorias__cabecera h2,
+.contenedorCatalogo__cabecera h2 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+}
+
+.verTodos {
+  font-size: 0.85rem;
+  color: #3e9b3e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.verTodos:hover {
+  text-decoration: underline;
+}
+
+.contenedorCategorias__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.categoriaCard {
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.categoriaCard:hover {
+  border-color: #6eba48;
+  transform: scale(1.04); 
+  box-shadow: 0 6px 14px rgba(110, 186, 72, 0.12); 
+}
+
+.categoriaCard__icono {
+  width: 32px; 
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;       
+  border-radius: 0; 
+}
+
+/* enlaces de imagenes */
+.categoriaCard__icono--novelas {
+  background-image: url('../assets/iconos/libro_icono.png');
+}
+
+.categoriaCard__icono--tecnologia {
+  background-image: url('../assets/iconos/computadora_icono.png');
+}
+
+.categoriaCard__icono--romance {
+  background-image: url('../assets/iconos/corazon_verde_icono.png');
+}
+
+.categoriaCard__icono--ciencia {
+  background-image: url('../assets/iconos/Ciencia_icono.png');
+}
+
+.categoriaCard__icono--terror {
+  background-image: url('../assets/iconos/terror_icono.png');
+}
+
+
+.contenedorCatalogo {
+  padding: 20px 40px 50px;
+}
+
+#contenedorLibros {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 18px;
+  min-height: 40px;
+}
+
+#contenedorLibros .libroCard {
+  display: flex;
+  flex-direction: column;
+}
+
+#contenedorLibros .libroCard__portada {
+  width: 100%;
+  aspect-ratio: 3 / 4.4;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+#contenedorLibros .libroCard__titulo {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+#contenedorLibros .libroCard__autor {
+  font-size: 0.78rem;
+  color: #6a6a6a;
+}
+
+
+.footerInicio {
+  background-color: #234d3b;
+  color: #ffffff;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.footerInicio__enlaces {
+  display: flex;
+  gap: 26px;
+}
+
+.footerInicio__enlaces a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footerInicio__enlaces a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .contenedorCategorias__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #contenedorLibros {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
