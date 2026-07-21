@@ -501,11 +501,10 @@ body {
   background-color: #234d3b;
   color: #ffffff;
   padding: 18px 40px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  position: fixed;
+  position: fixed bottom;
   bottom: 0;
   left: 0;
   width: 100%;
