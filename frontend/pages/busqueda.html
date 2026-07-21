@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Biblioteca - Resultados de búsqueda</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body class="paginaInicio">
+
+  <header class="navbar">
+    <a href="inicio.html" id="navInicio" class="navbar__logo">
+      <div class="navbar__logoIcono" role="img" aria-label="Logo E-Biblioteca"></div>
+      <span class="navbar__logoTexto">E-BIBLIOTECA</span>
+    </a>
+
+    <nav class="navbar__derecha">
+      <a href="favoritos.html" id="navFavoritos" class="navbar__enlace">
+        <span class="navbar__iconoCorazon" aria-hidden="true"></span>
+        Favoritos
+      </a>
+
+      <div class="navbar__usuario">
+        <button type="button" class="navbar__usuarioToggle">
+          <span class="navbar__iconoUsuario" aria-hidden="true"></span>
+          <span id="nombreUsuario">Usuario</span>
+          <span class="navbar__flecha">▾</span>
+        </button>
+
+        <div class="navbar__dropdown">
+          <a href="perfil.html" id="navPerfil">Mi perfil</a>
+          <button type="button" id="btnCerrarSesion">Cerrar sesión</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="busquedaCabecera">
+      <div class="busquedaCabecera__buscador">
+        <input
+          type="text"
+          id="buscador"
+          name="buscador"
+          placeholder="Buscar libros..">
+        <button type="button" id="btnBuscar" aria-label="Buscar">
+          <span class="iconoLupa" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="busquedaCabecera__meta">
+        <div class="busquedaCabecera__info">
+          <p>Resultados para "<span id="terminoBusqueda"></span>"</p>
+          <p><span id="cantidadResultados"></span> libros encontrados</p>
+        </div>
+
+        <div class="busquedaCabecera__orden">
+          <label for="ordenarPor">Ordenar:</label>
+          <select id="ordenarPor" name="ordenarPor">
+            <option value="relevancia">Relevancia</option>
+            <option value="reciente">Más reciente</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="contenedorCatalogo">
+      <div id="contenedorLibros"></div>
+
+      <nav id="paginacion" class="paginacion" aria-label="Paginación de resultados"></nav>
+    </section>
+
+  </main>
+
+  <footer class="footerInicio">
+    <span>E-Biblioteca &nbsp;© 2026 E-Biblioteca. Todos los derechos reservados.</span>
+    <div class="footerInicio__enlaces">
+      <a href="inicio.html">Inicio</a>
+      <a href="contacto.html" id="navContacto">Contacto</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="../js/busqueda.js"></script>
+</body>
+</html>

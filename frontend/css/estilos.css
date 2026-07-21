@@ -504,7 +504,7 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
-  position: fixed bottom;
+  position: bottom;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -541,3 +541,123 @@ body {
     display: none;
   }
 }
+
+.busquedaCabecera {
+  position: relative;
+  overflow: hidden;
+  background-color: #EEF8E8;
+  padding: 34px 40px 20px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.busquedaCabecera::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/imagenes/PatronLibro.png');
+  background-repeat: repeat;
+  background-size: 550px auto;
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.busquedaCabecera__buscador,
+.busquedaCabecera__meta {
+  position: relative;
+  z-index: 1;
+}
+ 
+.busquedaCabecera__buscador {
+  max-width: 640px;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  background-color: #d3ddce;
+  border-radius: 999px;
+  padding: 6px 8px 6px 24px;
+}
+ 
+.busquedaCabecera__buscador input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 1rem;
+  color: #333333;
+  font-family: inherit;
+}
+ 
+.busquedaCabecera__buscador input::placeholder {
+  color: #6f7c68;
+}
+ 
+.busquedaCabecera__meta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+ 
+.busquedaCabecera__info p {
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+ 
+.busquedaCabecera__info p:first-child {
+  font-weight: bold;
+}
+ 
+.busquedaCabecera__orden {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+}
+ 
+#ordenarPor {
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+ 
+/* Paginación (JS inserta los botones de página aquí dentro) */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+ 
+.paginacion a,
+.paginacion button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #3e9b3e;
+  cursor: pointer;
+  padding: 6px 4px;
+  text-decoration: none;
+}
+ 
+.paginacion a.activa,
+.paginacion button.activa {
+  font-weight: bold;
+  text-decoration: underline;
+}
+ 
+.paginacion a:hover,
+.paginacion button:hover {
+  text-decoration: underline;
+}
+ 

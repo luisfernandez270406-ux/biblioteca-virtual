@@ -7,8 +7,46 @@ if(usuario){
 document.getElementById("nombreUsuario").textContent =
     usuario.nombreUsuario;
  }
+
+const categoriasInicio = [
+    "subject:fiction",
+    "subject:fantasy",
+    "subject:romance",
+    "subject:science",
+    "subject:technology",
+    "subject:history"
+];
+let categoriaInicio =
+sessionStorage.getItem("categoria_inicio");
+if (!categoriaInicio) {
+
+    categoriaInicio =
+    categoriasInicio[
+        Math.floor(Math.random() * categoriasInicio.length)
+    ];
+
+    sessionStorage.setItem(
+        "categoria_inicio",
+        categoriaInicio
+    );
+
+}
 const botonUsuario = document.querySelector(".navbar__usuarioToggle");
+const inputBuscador = document.getElementById("buscador");
+const btnBuscar = document.getElementById("btnBuscar");
 const menu = document.querySelector(".navbar__dropdown");
+const btnVerTodosLibros = document.getElementById("btnVerTodosLibros");
+
+btnBuscar.addEventListener("click", buscar);
+inputBuscador.addEventListener("keydown", (evento) => {
+
+    if (evento.key === "Enter") {
+        buscar();
+    }
+
+});
+btnVerTodosLibros.addEventListener("click", verTodos);
+
 
 botonUsuario.addEventListener("click", () => {
     menu.classList.toggle("activo");
@@ -38,54 +76,22 @@ function cerrarSesion() {
     window.location.href = "login.html";
 
 }
-// prueba api de google
-async function cargarLibros() {
 
-    const respuesta = await fetch(
-        "https://www.googleapis.com/books/v1/volumes?q=programming&maxResults=20&key=AIzaSyCCBbzjpNC-4rG4Lvti2YUnocS9Q4uEt0w"
-    );
-    console.log(respuesta);
-
-    const datos = await respuesta.json();
-    console.log(datos);
-    if (!respuesta.ok) {
-    console.error(datos.error.message);
-    return;
+function buscar() {
+    const texto = inputBuscador.value.trim();
+    if (texto === "") {
+        return;
+    }
+    window.location.href =
+    `busqueda.html?q=${encodeURIComponent(texto)}`;
 }
 
-    mostrarLibros(datos.items);
-
-}
-
-function mostrarLibros(libros){
-    const contenedor = document.getElementById("contenedorLibros");
-    contenedor.innerHTML = "";
-    libros.forEach(libro => {
-        contenedor.innerHTML += crearTarjeta(libro);
-    });
-}
-
-function crearTarjeta(libro){
-    const titulo = libro.volumeInfo.title;
-    const autor = libro.volumeInfo.authors?.join(", ") || "Autor desconocido";
-    const portada = libro.volumeInfo.imageLinks?.thumbnail || "../assets/imagenes/sinPortada.png";
-    return `
-        <div class="libroCard">
-            <img
-                class="libroCard__portada"
-                src="${portada}"
-                alt="${titulo}"
-            >
-            <h3 class="libroCard__titulo">
-                ${titulo}
-            </h3>
-            <p class="libroCard__autor">
-                ${autor}
-            </p>
-        </div>
-    `;
+function verTodos() {
+    const categoria =
+    sessionStorage.getItem("categoria_inicio");
+    window.location.href =
+    `busqueda.html?q=${encodeURIComponent(categoria)}`;
 }
 
 
-
-cargarLibros();
+buscarLibros(categoriaInicio);
