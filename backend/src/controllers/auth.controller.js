@@ -81,7 +81,7 @@ const iniciarSesion = async (req, res) => {
         });
         if (!usuario) {
             return res.status(401).json({
-                mensaje: "Credenciales incorrectas."
+                mensaje: "El nombre de usuario o contrasena es incorrectas"
             });
         }
         const passwordCorrecta = await bcrypt.compare(
@@ -90,7 +90,7 @@ const iniciarSesion = async (req, res) => {
         );
         if (!passwordCorrecta) {
             return res.status(401).json({
-                mensaje: "Credenciales incorrectas."
+                mensaje: "El nombre de usuario o contrasena es incorrectas"
             });
         }
         const token = jwt.sign(
