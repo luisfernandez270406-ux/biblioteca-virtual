@@ -165,17 +165,7 @@ body {
   text-decoration: underline;
 }
 
-/* Responsive */
-@media (max-width: 720px) {
-  .panelLogin {
-    width: 100%;
-    clip-path: none;
-    padding: 30px 24px;
-  }
-  .imagenLogin {
-    display: none;
-  }
-}
+
 .paginaInicio {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #ffffff;
@@ -507,6 +497,7 @@ body {
 
 
 .footerInicio {
+  display: flex;
   background-color: #234d3b;
   color: #ffffff;
   padding: 18px 40px;
@@ -514,6 +505,11 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footerInicio__enlaces {
@@ -536,5 +532,13 @@ body {
   }
   #contenedorLibros {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .panelLogin {
+    width: 100%;
+    clip-path: none;
+    padding: 30px 24px;
+  }
+  .imagenLogin {
+    display: none;
   }
 }
