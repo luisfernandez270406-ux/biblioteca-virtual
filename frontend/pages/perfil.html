@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Biblioteca - Mi perfil</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body class="paginaInicio">
+
+  <header class="navbar">
+    <a href="inicio.html" id="navInicio" class="navbar__logo">
+      <div class="navbar__logoIcono" role="img" aria-label="Logo E-Biblioteca"></div>
+      <span class="navbar__logoTexto">E-BIBLIOTECA</span>
+    </a>
+
+    <nav class="navbar__derecha">
+      <a href="favoritos.html" id="navFavoritos" class="navbar__enlace">
+        <span class="navbar__iconoCorazon" aria-hidden="true"></span>
+        Favoritos
+      </a>
+
+      <div class="navbar__usuario">
+        <button type="button" class="navbar__usuarioToggle">
+          <span class="navbar__iconoUsuario" aria-hidden="true"></span>
+          <span id="nombreUsuario">Usuario</span>
+          <span class="navbar__flecha">▾</span>
+        </button>
+
+        <div class="navbar__dropdown">
+          <a href="perfil.html" id="navPerfil">Mi perfil</a>
+          <button type="button">Cerrar sesión</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="perfil">
+
+      <div class="perfil__avatar" role="img" aria-label="Avatar de usuario">
+        <span class="perfil__avatarIcono" aria-hidden="true"></span>
+      </div>
+
+      <div class="perfil__info">
+
+        <h1 id="nombreCompleto" class="perfil__nombre"></h1>
+
+        <div class="perfil__campo">
+          <span class="perfil__etiqueta">Correo</span>
+          <span id="correo"></span>
+        </div>
+
+        <div class="perfil__campo">
+          <span class="perfil__etiqueta">Fecha registro</span>
+          <span id="fechaRegistro"></span>
+        </div>
+
+        <div class="perfil__campo">
+          <span class="perfil__etiqueta">Favoritos</span>
+          <span class="perfil__favoritos">
+            <span class="perfil__iconoCorazon" aria-hidden="true"></span>
+            <span id="cantidadFavoritos"></span> libros guardados
+          </span>
+        </div>
+
+        <div class="perfil__campo perfil__campo--sinLinea">
+          <span class="perfil__etiqueta">Rol</span>
+          <span id="rol" class="perfil__badgeRol"></span>
+        </div>
+
+        <button type="button" id="btnCerrarSesion" class="perfil__btnCerrarSesion">
+          <span class="perfil__iconoSalir" aria-hidden="true"></span>
+          Cerrar sesión
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footerInicio">
+    <span>E-Biblioteca &nbsp;© 2026 E-Biblioteca. Todos los derechos reservados.</span>
+    <div class="footerInicio__enlaces">
+      <a href="inicio.html">Inicio</a>
+      <a href="contacto.html" id="navContacto">Contacto</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="../js/perfil.js"></script>
+</body>
+</html>

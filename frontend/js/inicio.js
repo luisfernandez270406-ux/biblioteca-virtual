@@ -33,21 +33,17 @@ if (!categoriaInicio) {
 }
 const botonUsuario = document.querySelector(".navbar__usuarioToggle");
 const inputBuscador = document.getElementById("buscador");
-const btnBuscar = document.getElementById("btnBuscar");
 const menu = document.querySelector(".navbar__dropdown");
 const btnVerTodosLibros = document.getElementById("btnVerTodosLibros");
+const formularioBuscar = document.getElementById("formBuscar");
 
-btnBuscar.addEventListener("click", buscar);
-inputBuscador.addEventListener("keydown", (evento) => {
-
-    if (evento.key === "Enter") {
-        buscar();
-    }
-
+formularioBuscar.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    buscar();
 });
+
 btnVerTodosLibros.addEventListener("click", verTodos);
-
-
+//menu usuario
 botonUsuario.addEventListener("click", () => {
     menu.classList.toggle("activo");
 });

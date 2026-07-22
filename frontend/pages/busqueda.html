@@ -38,16 +38,16 @@
   <main>
 
     <section class="busquedaCabecera">
-      <div class="busquedaCabecera__buscador">
+      <form id="formBuscar" class="busquedaCabecera__buscador">
         <input
           type="text"
           id="buscador"
           name="buscador"
           placeholder="Buscar libros..">
-        <button type="button" id="btnBuscar" aria-label="Buscar">
+        <button type="submit" id="btnBuscar" aria-label="Buscar">
           <span class="iconoLupa" aria-hidden="true"></span>
         </button>
-      </div>
+      </form>
 
       <div class="busquedaCabecera__meta">
         <div class="busquedaCabecera__info">
@@ -81,7 +81,7 @@
       <a href="#" target="_blank" rel="noopener">GitHub</a>
     </div>
   </footer>
-
+  <script src="../js/libros.js"></script>
   <script src="../js/busqueda.js"></script>
 </body>
 </html>

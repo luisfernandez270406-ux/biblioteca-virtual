@@ -660,4 +660,590 @@ body {
 .paginacion button:hover {
   text-decoration: underline;
 }
+
+.detalleLibro {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  background-color: #eaf3ee;
+  border-radius: 12px;
+  margin: 30px 40px 0;
+  padding: 34px;
+}
  
+.detalleLibro__portada {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+  background-color: #d9e2d3; /* placeholder mientras carga la portada real */
+}
+ 
+.detalleLibro__titulo {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  font-size: 1.7rem;
+  color: #234d3b;
+  margin-bottom: 22px;
+}
+ 
+.detalleLibro__datos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 16px;
+  column-gap: 30px;
+  margin-bottom: 26px;
+}
+ 
+.detalleLibro__dato {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+ 
+.detalleLibro__etiqueta {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+ 
+.detalleLibro__dato span:last-child {
+  font-size: 0.95rem;
+  color: #333333;
+}
+ 
+.detalleLibro__acciones {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+ 
+.detalleLibro__btnFavorito {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #4a7a5e;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+ 
+.detalleLibro__btnFavorito:hover {
+  background-color: #3d6a4f;
+}
+ 
+.detalleLibro__btnFavorito .navbar__iconoCorazon::before {
+  border-color: #ffffff;
+}
+ 
+/* ---------- Sinopsis ---------- */
+.detalleLibro__sinopsis {
+  margin: 0 40px 40px;
+  padding-top: 24px;
+}
+ 
+.detalleLibro__sinopsis h2 {
+  font-size: 1.3rem;
+  color: #3e9b3e;
+  margin-bottom: 12px;
+}
+ 
+.detalleLibro__sinopsis p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333333;
+  max-width: 900px;
+}
+.perfil {
+  max-width: 720px;
+  margin: 40px auto 0;
+  background-color: #eaf3ee;
+  border-radius: 14px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 36px;
+}
+ 
+.perfil__avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: #4a7a5e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+ 
+.perfil__avatarIcono {
+  width: 60px;  
+  height: 60px;
+  background-image: url('../assets/iconos/Usuario_icono_perfil.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+ 
+.perfil__nombre {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #3e9b3e;
+  margin-bottom: 20px;
+}
+ 
+.perfil__campo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(35, 77, 59, 0.15);
+  font-size: 0.95rem;
+  color: #1a1a1a;
+}
+ 
+.perfil__campo--sinLinea {
+  border-bottom: none;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+}
+ 
+.perfil__etiqueta {
+  font-weight: bold;
+}
+ 
+.perfil__favoritos {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+ 
+.perfil__iconoCorazon {
+  width: 18px;
+  height: 18px;
+  background-image: url('../assets/iconos/corazon_rojo_icono.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+ 
+.perfil__badgeRol {
+  display: inline-block;
+  background-color: #d9a62e;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.82rem;
+  padding: 5px 18px;
+  border-radius: 999px;
+}
+ 
+.perfil__btnCerrarSesion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #c0392b;
+  color: #c0392b;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+ 
+.perfil__btnCerrarSesion:hover {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+ 
+.perfil__iconoSalir {
+  width: 16px;
+  height: 16px;
+  background-image: url('../assets/iconos/cerrar\ _sesion\ _icono.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+
+.contactoCabecera {
+  text-align: center;
+  padding: 40px 24px 0;
+}
+ 
+.contactoCabecera h1 {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+ 
+.contactoCabecera p {
+  font-size: 0.95rem;
+  color: #4a4a4a;
+}
+ 
+.contactoForm {
+  max-width: 780px;
+  margin: 26px auto 0;
+  padding: 0 24px;
+}
+ 
+#formContacto {
+  background-color: #eaf3ee;
+  border-radius: 14px;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 36px;
+}
+ 
+.contactoForm__campo {
+  margin-bottom: 20px;
+}
+ 
+.contactoForm__campo label {
+  display: block;
+  font-size: 0.9rem;
+  color: #333333;
+  margin-bottom: 6px;
+}
+ 
+.contactoForm__campo input[type="text"],
+.contactoForm__campo input[type="email"],
+.contactoForm__campo input[type="tel"],
+.contactoForm__campo input[type="date"] {
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #b9c7b3;
+  background: transparent;
+  padding: 6px 2px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+  outline: none;
+}
+ 
+.contactoForm__campo input:focus {
+  border-bottom-color: #3e9b3e;
+}
+ 
+.contactoForm__campo--mensaje {
+  grid-column: 1 / -1;
+}
+ 
+.contactoForm__campo textarea {
+  width: 100%;
+  min-height: 70px;
+  border: 1.5px solid #b9c7b3;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  resize: vertical;
+  outline: none;
+}
+ 
+.contactoForm__campo textarea:focus {
+  border-color: #3e9b3e;
+}
+ 
+.contactoForm__radios {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ 
+.contactoForm__radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+ 
+.contactoForm__radio input {
+  accent-color: #3e9b3e;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+ 
+.contactoForm__archivo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.contactoForm__archivo input[type="file"] {
+  display: none;
+}
+ 
+.contactoForm__btnArchivo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1.5px solid #b9c7b3;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 0.85rem;
+  color: #234d3b;
+  cursor: pointer;
+}
+
+.contactoForm__btnArchivo:hover {
+  border-color: #3e9b3e;
+}
+ 
+.contactoForm__iconoClip {
+  width: 25px; 
+  height: 25px;
+  background-image: url('../assets/iconos/clip_icono.png'); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+ 
+.contactoForm__nombreArchivo {
+  font-size: 0.82rem;
+  color: #5b6259;
+}
+ 
+.contactoForm__enviar {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+ 
+#btnEnviar {
+  background-color: #6eba48;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 13px 42px;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+ 
+#btnEnviar:hover {
+  background-color: #5aa038;
+}
+ 
+.contactoInfo {
+  display: flex;
+  justify-content: center;
+  gap: 44px;
+  flex-wrap: wrap;
+  padding: 26px 24px 50px;
+  font-size: 0.88rem;
+  color: #333333;
+}
+ 
+.contactoInfo__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+ 
+.contactoInfo__icono {
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+.contactoInfo__icono--correo {
+  background-image: url('../assets/iconos/correo_icono.png');
+}
+
+ 
+.contactoInfo__icono--horario {
+  background-image: url('../assets/iconos/calendario_icono.png');
+}
+
+.contactoInfo__icono--telefono {
+  background-image: url('../assets/iconos/telefono_icono.png'); 
+}
+.heroFavoritos {
+  position: relative;
+  overflow: hidden;
+  background-color: #EEF8E8;
+  text-align: center;
+  padding: 40px 24px 32px;
+}
+ 
+.heroFavoritos__patron {
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/imagenes/PatronLibro.png');
+  background-repeat: repeat;
+  background-size: 550px auto;
+  opacity: 0.12;
+  z-index: 0;
+}
+ 
+.heroFavoritos__titulo,
+.heroFavoritos__subtitulo,
+.heroFavoritos__buscador {
+  position: relative;
+  z-index: 1;
+}
+ 
+.heroFavoritos__titulo {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  font-size: 1.9rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+ 
+.heroFavoritos__subtitulo {
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  margin-bottom: 22px;
+}
+ 
+.heroFavoritos__buscador {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background-color: #d3ddce;
+  border-radius: 999px;
+  padding: 12px 24px;
+}
+ 
+.heroFavoritos__buscador input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 1rem;
+  color: #333333;
+  font-family: inherit;
+}
+ 
+.heroFavoritos__buscador input::placeholder {
+  color: #6f7c68;
+}
+ 
+/* ---------- Contador ---------- */
+.favoritos__contador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 18px;
+}
+ 
+.favoritos__iconoCorazon {
+  color: #c0392b;
+}
+ 
+/* ---------- Tarjetas de favoritos ---------- */
+#contenedorFavoritos {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 18px;
+}
+ 
+#contenedorFavoritos .libroCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+ 
+#contenedorFavoritos .libroCard__portada {
+  width: 100%;
+  aspect-ratio: 3 / 4.4;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+ 
+#contenedorFavoritos .libroCard__titulo {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+ 
+#contenedorFavoritos .libroCard__autor {
+  font-size: 0.78rem;
+  color: #6a6a6a;
+}
+ 
+.btnEliminarFavorito {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff;
+  color: #c0392b;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+ 
+.btnEliminarFavorito:hover {
+  transform: scale(1.08);
+}
+ 
+/* ---------- Estado vacío ---------- */
+.favoritosVacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+ 
+.favoritosVacio__icono {
+  font-size: 2.4rem;
+  color: #b9c7b3;
+  margin-bottom: 12px;
+}
+ 
+.favoritosVacio p {
+  color: #5b6259;
+  margin-bottom: 18px;
+}
+ 
+.favoritosVacio__btn {
+  background-color: #6eba48;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 11px 26px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+ 
+.favoritosVacio__btn:hover {
+  background-color: #5aa038;
+}

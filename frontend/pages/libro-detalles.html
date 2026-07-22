@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Biblioteca - Detalle del libro</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body class="paginaInicio">
+
+  <header class="navbar">
+    <a href="inicio.html" id="navInicio" class="navbar__logo">
+      <div class="navbar__logoIcono" role="img" aria-label="Logo E-Biblioteca"></div>
+      <span class="navbar__logoTexto">E-BIBLIOTECA</span>
+    </a>
+
+    <nav class="navbar__derecha">
+      <a href="favoritos.html" id="navFavoritos" class="navbar__enlace">
+        <span class="navbar__iconoCorazon" aria-hidden="true"></span>
+        Favoritos
+      </a>
+
+      <div class="navbar__usuario">
+        <button type="button" class="navbar__usuarioToggle">
+          <span class="navbar__iconoUsuario" aria-hidden="true"></span>
+          <span id="nombreUsuario">Usuario</span>
+          <span class="navbar__flecha">▾</span>
+        </button>
+
+        <div class="navbar__dropdown">
+          <a href="perfil.html" id="navPerfil">Mi perfil</a>
+          <button type="button" id="btnCerrarSesion">Cerrar sesión</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="detalleLibro">
+
+      <img
+        id="portadaLibro"
+        class="detalleLibro__portada"
+        src=""
+        alt="Portada del libro">
+
+      <div class="detalleLibro__info">
+
+        <h1 id="tituloLibro" class="detalleLibro__titulo"></h1>
+
+        <div class="detalleLibro__datos">
+          <div class="detalleLibro__dato">
+            <span class="detalleLibro__etiqueta">Autor</span>
+            <span id="autorLibro"></span>
+          </div>
+          <div class="detalleLibro__dato">
+            <span class="detalleLibro__etiqueta">Categoría</span>
+            <span id="categoriasLibro"></span>
+          </div>
+          <div class="detalleLibro__dato">
+            <span class="detalleLibro__etiqueta">Editorial</span>
+            <span id="editorialLibro"></span>
+          </div>
+          <div class="detalleLibro__dato">
+            <span class="detalleLibro__etiqueta">Idioma</span>
+            <span id="idiomaLibro"></span>
+          </div>
+          <div class="detalleLibro__dato">
+            <span class="detalleLibro__etiqueta">Publicado</span>
+            <span id="fechaPublicacion"></span>
+          </div>
+          <div class="detalleLibro__dato">
+            <span class="detalleLibro__etiqueta">Páginas</span>
+            <span id="paginasLibro"></span>
+          </div>
+        </div>
+
+        <div class="detalleLibro__acciones">
+          <button type="button" id="btnFavorito" class="detalleLibro__btnFavorito">
+            <span class="navbar__iconoCorazon" aria-hidden="true"></span>
+            Agregar a favoritos
+          </button>
+
+          <!-- JavaScript insertará aquí el/los botones de compra, solo si el libro está disponible para comprar -->
+          <div id="contenedorCompra"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="detalleLibro__sinopsis">
+      <h2>Sinopsis</h2>
+      <p id="sinopsisLibro"></p>
+    </section>
+
+  </main>
+
+  <footer class="footerInicio">
+    <span>E-Biblioteca &nbsp;© 2026 E-Biblioteca. Todos los derechos reservados.</span>
+    <div class="footerInicio__enlaces">
+      <a href="inicio.html">Inicio</a>
+      <a href="contacto.html" id="navContacto">Contacto</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="../js/libroDetalle.js"></script>
+</body>
+</html>

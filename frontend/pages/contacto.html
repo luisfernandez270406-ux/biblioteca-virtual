@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Biblioteca - Contacto</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body class="paginaInicio">
+
+  <header class="navbar">
+    <a href="inicio.html" id="navInicio" class="navbar__logo">
+      <div class="navbar__logoIcono" role="img" aria-label="Logo E-Biblioteca"></div>
+      <span class="navbar__logoTexto">E-BIBLIOTECA</span>
+    </a>
+
+    <nav class="navbar__derecha">
+      <a href="favoritos.html" id="navFavoritos" class="navbar__enlace">
+        <span class="navbar__iconoCorazon" aria-hidden="true"></span>
+        Favoritos
+      </a>
+
+      <div class="navbar__usuario">
+        <button type="button" class="navbar__usuarioToggle">
+          <span class="navbar__iconoUsuario" aria-hidden="true"></span>
+          <span id="nombreUsuario">Usuario</span>
+          <span class="navbar__flecha">▾</span>
+        </button>
+
+        <div class="navbar__dropdown">
+          <a href="perfil.html" id="navPerfil">Mi perfil</a>
+          <button type="button">Cerrar sesión</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="contactoCabecera">
+      <h1>Contáctanos</h1>
+      <p>¿Tienes alguna duda o sugerencia? Completa el siguiente formulario.</p>
+    </section>
+
+    <section class="contactoForm">
+
+      <form id="formContacto" action="#" method="post" enctype="multipart/form-data">
+
+        <div class="contactoForm__campo">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+        </div>
+
+        <div class="contactoForm__campo">
+          <label for="correo">Correo Electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="usuariocorreo@gmail.com" required>
+        </div>
+
+        <div class="contactoForm__campo">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="+58 000 000 0000">
+        </div>
+
+        <div class="contactoForm__campo">
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha" name="fecha">
+        </div>
+
+        <div class="contactoForm__campo">
+          <label>Tipo de solicitud</label>
+          <div class="contactoForm__radios">
+            <label class="contactoForm__radio">
+              <input type="radio" id="consulta" name="tipoSolicitud" value="consulta" checked>
+              Consulta
+            </label>
+            <label class="contactoForm__radio">
+              <input type="radio" id="reporte" name="tipoSolicitud" value="reporte">
+              Reporte
+            </label>
+            <label class="contactoForm__radio">
+              <input type="radio" id="sugerencia" name="tipoSolicitud" value="sugerencia">
+              Sugerencia
+            </label>
+          </div>
+        </div>
+
+        <div class="contactoForm__campo">
+          <label for="archivo">Adjuntar archivo</label>
+          <div class="contactoForm__archivo">
+            <label for="archivo" class="contactoForm__btnArchivo">
+              <span class="contactoForm__iconoClip" aria-hidden="true"></span>
+              Selecciona archivo
+            </label>
+            <input type="file" id="archivo" name="archivo">
+            <span id="nombreArchivo" class="contactoForm__nombreArchivo">Ningún archivo seleccionado</span>
+          </div>
+        </div>
+
+        <div class="contactoForm__campo contactoForm__campo--mensaje">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
+        </div>
+
+        <div class="contactoForm__enviar">
+          <button type="submit" id="btnEnviar">Enviar solicitud</button>
+        </div>
+
+      </form>
+
+    </section>
+
+    <section class="contactoInfo">
+      <div class="contactoInfo__item">
+        <span class="contactoInfo__icono contactoInfo__icono--correo" aria-hidden="true"></span>
+        contacto@ebiblioteca.com
+      </div>
+      <div class="contactoInfo__item">
+        <span class="contactoInfo__icono contactoInfo__icono--telefono" aria-hidden="true"></span>
+        +58 XXX XXX XXXX
+      </div>
+      <div class="contactoInfo__item">
+        <span class="contactoInfo__icono contactoInfo__icono--horario" aria-hidden="true"></span>
+        Lun-Vie, 8:00 AM - 5:00 PM
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footerInicio">
+    <span>E-Biblioteca &nbsp;© 2026 E-Biblioteca. Todos los derechos reservados.</span>
+    <div class="footerInicio__enlaces">
+      <a href="inicio.html">Inicio</a>
+      <a href="contacto.html" id="navContacto">Contacto</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="../js/contacto.js"></script>
+</body>
+</html>
