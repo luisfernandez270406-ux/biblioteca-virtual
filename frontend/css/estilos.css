@@ -1351,3 +1351,40 @@ body {
     color: inherit;        
     display: block;        
 }
+
+.loaderContenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 200px;
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+.loaderContenedor__texto {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.loaderContenedor--error .loaderContenedor__texto {
+    color: red;
+}
+
+.loaderContenedor__boton {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.loaderGif {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}

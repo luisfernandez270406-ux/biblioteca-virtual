@@ -83,11 +83,35 @@ function buscar() {
 }
 
 function verTodos() {
-    const categoria =
-    sessionStorage.getItem("categoria_inicio");
-    window.location.href =
-    `busqueda.html?q=${encodeURIComponent(categoria)}`;
+    const categoria = sessionStorage.getItem("categoria_inicio");
+    window.location.href = `busqueda.html?q=${encodeURIComponent(categoria)}`;
 }
+
+// Opciones directas y simples para cada categoría por su ID
+document.getElementById("categoriaNovelas").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "busqueda.html?q=Novelas";
+});
+
+document.getElementById("categoriaTecnologia").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "busqueda.html?q=Tecnología";
+});
+
+document.getElementById("categoriaRomance").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "busqueda.html?q=Romance";
+});
+
+document.getElementById("categoriaCiencia").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "busqueda.html?q=Ciencia";
+});
+
+document.getElementById("categoriaTerror").addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "busqueda.html?q=Terror";
+});
 
 
 buscarLibros(categoriaInicio);

@@ -5,36 +5,28 @@ document.getElementById("nombreUsuario").textContent =
  }
 const botonUsuario = document.querySelector(".navbar__usuarioToggle");
 const menu = document.querySelector(".navbar__dropdown");
-//menu usuario
+
 botonUsuario.addEventListener("click", () => {
     menu.classList.toggle("activo");
 });
 document.addEventListener("click", (evento) => {
-
     if (
         !botonUsuario.contains(evento.target) &&
         !menu.contains(evento.target)
     ) {
         menu.classList.remove("activo");
     }
-
 });
-
 
 const btnCerrarSesion =
 document.getElementById("btnCerrarSesion");
-
 btnCerrarSesion.addEventListener("click", cerrarSesion);
 function cerrarSesion() {
-
     localStorage.removeItem("token"); //borramos el token 
-
     localStorage.removeItem("usuario");
-
     window.location.href = "login.html";
 
 }
-
 
 
 document.addEventListener("DOMContentLoaded", async () => {

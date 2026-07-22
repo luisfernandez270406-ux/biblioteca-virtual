@@ -1,9 +1,9 @@
 const formulario = document.getElementById("formLogin");
 const mensaje = document.getElementById("mensajeLogin");
 
-const token = localStorage.getItem("token");// verificamos si hay sesion iniciada
+const token = localStorage.getItem("token");
 if (token) {
-    window.location.href = "inicio.html"; // evitamos que el usuario pueda volver al login si tiene seccion activa
+    window.location.href = "inicio.html"; 
 }
 formulario.addEventListener("submit", iniciarSesion);
 
@@ -29,7 +29,7 @@ async function iniciarSesion(evento) {
         mensaje.textContent = datos.mensaje;
         mensaje.style.color = "red";
         console.log(datos.mensaje);
-        return;// esto detiene la funcion si hay un error 
+        return;
     }
     console.log(datos);
     localStorage.setItem("token", datos.token);
