@@ -502,6 +502,10 @@ body {
 }
 
 #contenedorLibros .libroCard__titulo {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 0.90rem;
   font-weight: bold;
   line-height: 1.3;
@@ -543,23 +547,6 @@ body {
 
 .footerInicio__enlaces a:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 900px) {
-  .contenedorCategorias__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  #contenedorLibros {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .panelLogin {
-    width: 100%;
-    clip-path: none;
-    padding: 30px 24px;
-  }
-  .imagenLogin {
-    display: none;
-  }
 }
 
 .busquedaCabecera {
