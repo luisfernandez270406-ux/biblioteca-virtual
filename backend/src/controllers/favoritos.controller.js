@@ -86,5 +86,23 @@ const eliminarFavoritos = async (req, res) => {
         });
     }
 };
+const verificarFavorito = async (req, res) => {
+    try {
+        const { libroId } = req.params;
+        const favorito = await Favorito.findOne({
+            usuario: req.usuario.id,
+            libroId
+        });
+        res.status(200).json({
+            esFavorito: !!favorito,favoritoId: favorito ? favorito._id : null
+        });
 
-module.exports = {agregarFavoritos,obtenerFavoritos,eliminarFavoritos};
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            mensaje: "Error interno del servidor."
+        });
+    }
+}
+
+module.exports = {agregarFavoritos,obtenerFavoritos,eliminarFavoritos,verificarFavorito};

@@ -57,7 +57,17 @@ function mostrarLibro(libro) {
     }
     contenedorCompra.innerHTML = htmlBotones;
     const btnFavorito = document.querySelector(".detalleLibro__btnFavorito");// para guardar fav 
-    btnFavorito.onclick = () => agregarAFavoritos(libro);
+    let favoritoId = null;
+    verificarFavorito(libro.id).then((datos) => {
+    favoritoId = datos.favoritoId;
+    if (datos.esFavorito) {
+        btnFavorito.textContent = "En favoritos";
+    } else {
+        btnFavorito.textContent = "Agregar a favoritos";
+    }
+});
+
+btnFavorito.onclick = () => agregarAFavoritos(libro);
 }
 
 const parametros = new URLSearchParams(window.location.search);
@@ -87,18 +97,30 @@ async function agregarAFavoritos(libro) {
     }
 );
     const datos = await respuesta.json();
-
     console.log(datos);
     if (!respuesta.ok) {
-
         alert(datos.mensaje);
-
      return;
 
     }
-
     alert(datos.mensaje);
+}
+async function verificarFavorito(libroId) {
 
+    const token = localStorage.getItem("token");
+
+    const respuesta = await fetch(
+        `http://localhost:3000/api/favoritos/existe/${libroId}`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    );
+
+    const datos = await respuesta.json();
+
+    return datos;
 
 }
 
