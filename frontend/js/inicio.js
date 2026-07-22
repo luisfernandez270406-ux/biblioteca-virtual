@@ -9,12 +9,12 @@ document.getElementById("nombreUsuario").textContent =
  }
 
 const categoriasInicio = [
-    "subject:fiction",
-    "subject:fantasy",
+    "subject:ficcion",
+    "subject:fantasia",
     "subject:romance",
-    "subject:science",
-    "subject:technology",
-    "subject:history"
+    "subject:ciencia",
+    "subject:technologia",
+    "subject:historia"
 ];
 let categoriaInicio =
 sessionStorage.getItem("categoria_inicio");
