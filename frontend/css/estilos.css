@@ -1114,9 +1114,9 @@ body {
 }
  
 .heroFavoritos__titulo {
-  font-family: 'Georgia', serif;
-  font-weight: bold;
-  font-size: 1.9rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 2.2rem;
   color: #1a1a1a;
   margin-bottom: 8px;
 }
@@ -1162,7 +1162,9 @@ body {
 }
  
 .favoritos__iconoCorazon {
-  color: #c0392b;
+  width: 24px;   
+  height: 24px; 
+  object-fit: contain;
 }
  
 
@@ -1170,31 +1172,58 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 18px;
+  min-height: 40px;
 }
- 
+
 #contenedorFavoritos .libroCard {
-  position: relative;
   display: flex;
   flex-direction: column;
+  padding: 10px;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition:
+      transform .25s ease,
+      box-shadow .25s ease;
 }
- 
+
+#contenedorFavoritos .libroCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.18);
+  border-color: #6EBA48;
+}
+
 #contenedorFavoritos .libroCard__portada {
   width: 100%;
   aspect-ratio: 3 / 4.4;
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 8px;
+  transition: transform .25s ease;
 }
- 
+
+#contenedorFavoritos .libroCard:hover .libroCard__portada {
+  transform: scale(1.05);
+}
+
 #contenedorFavoritos .libroCard__titulo {
-  font-size: 0.85rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.90rem;
   font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 6px;
   color: #1a1a1a;
 }
- 
+
 #contenedorFavoritos .libroCard__autor {
-  font-size: 0.78rem;
-  color: #6a6a6a;
+  font-size: 0.88rem;
+  color: #777;
 }
  
 .btnEliminarFavorito {

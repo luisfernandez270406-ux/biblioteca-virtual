@@ -13,6 +13,7 @@ async function obtenerLibro(idLibro) {
     console.log(libro)
     mostrarLibro(libro);
 }
+
 function mostrarLibro(libro) {
     const info = libro.volumeInfo;
     const sinopsisLimpia = info.description 
@@ -55,8 +56,51 @@ function mostrarLibro(libro) {
     `;
     }
     contenedorCompra.innerHTML = htmlBotones;
+    const btnFavorito = document.querySelector(".detalleLibro__btnFavorito");// para guardar fav 
+    btnFavorito.onclick = () => agregarAFavoritos(libro);
 }
+
 const parametros = new URLSearchParams(window.location.search);
 const idLibro = parametros.get("id");
 console.log(idLibro);
+async function agregarAFavoritos(libro) {
+    const favorito = {
+    libroId: libro.id,
+    titulo: libro.volumeInfo.title,
+    autor:
+    libro.volumeInfo.authors?.join(", ")
+    || "Autor desconocido",
+    portada:
+    libro.volumeInfo.imageLinks?.thumbnail
+    || ""
+    
+};
+    const token = localStorage.getItem("token");
+    const respuesta = await fetch("http://localhost:3000/api/favoritos",
+        {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(favorito)
+    }
+);
+    const datos = await respuesta.json();
+
+    console.log(datos);
+    if (!respuesta.ok) {
+
+        alert(datos.mensaje);
+
+     return;
+
+    }
+
+    alert(datos.mensaje);
+
+
+}
+
+
 obtenerLibro(idLibro);
