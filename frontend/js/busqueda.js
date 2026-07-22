@@ -47,10 +47,15 @@ const inputBuscador = document.getElementById("buscador");
 const btnBuscar = document.getElementById("btnBuscar");
 async function cargarBusqueda() {
     console.log(busqueda);
-    const datos = await buscarLibros(busqueda,startIndex);
-    document.getElementById("cantidadResultados").textContent =
-    datos.totalItems;
-    crearPaginacion(datos.totalItems);
+    const datos = await buscarLibros(busqueda, startIndex);
+    
+    if (datos && datos.totalItems !== undefined) {
+        document.getElementById("cantidadResultados").textContent = datos.totalItems;
+        crearPaginacion(datos.totalItems);
+    } else {
+        document.getElementById("cantidadResultados").textContent = "0";
+        console.warn("No se pudieron cargar los resultados debido a un fallo en la API.");
+    }
 }
 function crearPaginacion(totalResultados) {
     const contenedor =

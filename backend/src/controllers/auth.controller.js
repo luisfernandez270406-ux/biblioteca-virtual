@@ -97,7 +97,7 @@ const iniciarSesion = async (req, res) => {
             {
                 id: usuario._id,
                 nombreUsuario: usuario.nombreUsuario,
-                rol: usuario.rol
+                rol: usuario.rol,
             },
             process.env.JWT_SECRET,
             {
@@ -112,7 +112,8 @@ const iniciarSesion = async (req, res) => {
                 nombreCompleto: usuario.nombreCompleto,
                 nombreUsuario: usuario.nombreUsuario,
                 correo: usuario.correo,
-                rol: usuario.rol
+                rol: usuario.rol,
+                createdAt: usuario.createdAt
             }
         });
     } catch (error) {

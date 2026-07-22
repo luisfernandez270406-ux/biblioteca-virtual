@@ -1,8 +1,9 @@
+let listaFavoritosGlobal = [];
+
 const usuario = JSON.parse(localStorage.getItem("usuario"));
 if(usuario){
-document.getElementById("nombreUsuario").textContent =
-    usuario.nombreUsuario;
- }
+    document.getElementById("nombreUsuario").textContent = usuario.nombreUsuario;
+}
 
 const botonUsuario = document.querySelector(".navbar__usuarioToggle");
 const menu = document.querySelector(".navbar__dropdown");
@@ -19,46 +20,63 @@ document.addEventListener("click", (evento) => {
     }
 });
 
-const btnCerrarSesion =
-document.getElementById("btnCerrarSesion");
+const btnCerrarSesion = document.getElementById("btnCerrarSesion");
 btnCerrarSesion.addEventListener("click", cerrarSesion);
 function cerrarSesion() {
-    localStorage.removeItem("token"); //borramos el token 
+    localStorage.removeItem("token"); 
     localStorage.removeItem("usuario");
     window.location.href = "login.html";
-
 }
 
 async function cargarFavoritos() {
-
     const token = localStorage.getItem("token");
 
-    const respuesta = await fetch(
-        "http://localhost:3000/api/favoritos",
-        {
-            headers: {
-                Authorization: `Bearer ${token}`
+    try {
+        const respuesta = await fetch(
+            "http://localhost:3000/api/favoritos",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
             }
+        );
+
+        const datos = await respuesta.json();
+        console.log(datos);
+
+        if (datos.favoritos) {
+            listaFavoritosGlobal = datos.favoritos;
+            
+            const spanContador = document.getElementById("cantidadFavoritos");
+            if (spanContador) spanContador.textContent = listaFavoritosGlobal.length;
+
+            renderizarFavoritos(listaFavoritosGlobal);
         }
-    );
+    } catch (error) {
+        console.error("Error al cargar favoritos:", error);
+    }
+}
 
-    const datos = await respuesta.json();
-
-    console.log(datos);
+function renderizarFavoritos(favoritosArray) {
     const contenedor = document.getElementById("contenedorFavoritos");
+    const favoritosVacio = document.getElementById("favoritosVacio");
+    const spanContador = document.getElementById("cantidadFavoritos");
 
-contenedor.innerHTML = "";
-if (datos.favoritos && datos.favoritos.length > 0) {
+    contenedor.innerHTML = "";
+    
+    if (spanContador) spanContador.textContent = favoritosArray.length;
+
+    if (favoritosArray.length > 0) {
         if (favoritosVacio) favoritosVacio.style.display = "none";
 
-        datos.favoritos.forEach(favorito => {
+        favoritosArray.forEach(favorito => {
             contenedor.innerHTML += crearTarjetaFavorito(favorito);
         });
     } else {
-        
         if (favoritosVacio) favoritosVacio.style.display = "block";
     }
 }
+
 function crearTarjetaFavorito(favorito) {
     return `
         <a href="libro-detalles.html?id=${favorito.libroId}" class="libroCard__enlace">
@@ -79,6 +97,25 @@ function crearTarjetaFavorito(favorito) {
             </div>
         </a>
     `;
-
 }
+
+const inputBuscador = document.getElementById("buscadorFavoritos");
+
+if (inputBuscador) {
+    inputBuscador.addEventListener("input", (e) => {
+        const textoBusqueda = e.target.value.toLowerCase().trim();
+
+        
+        const favoritosFiltrados = listaFavoritosGlobal.filter(fav => {
+            const tituloCoincide = fav.titulo && fav.titulo.toLowerCase().includes(textoBusqueda);
+            const autorCoincide = fav.autor && fav.autor.toLowerCase().includes(textoBusqueda);
+            return tituloCoincide || autorCoincide;
+        });
+
+        
+        renderizarFavoritos(favoritosFiltrados);
+    });
+}
+
+
 cargarFavoritos();

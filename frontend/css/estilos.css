@@ -8,6 +8,10 @@
 body {
   font-family: 'Georgia', 'Times New Roman', serif;
   color: #1a1a1a;
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+
 }
 
 .paginaLogin {
@@ -767,7 +771,7 @@ body {
 .perfil {
   max-width: 720px;
   margin: 40px auto 0;
-  background-color: #eaf3ee;
+  background-color: #EEF8E8;
   border-radius: 14px;
   padding: 40px;
   display: grid;

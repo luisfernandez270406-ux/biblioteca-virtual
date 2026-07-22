@@ -3,6 +3,31 @@ if(usuario){
 document.getElementById("nombreUsuario").textContent =
     usuario.nombreUsuario;
  }
+const botonUsuario = document.querySelector(".navbar__usuarioToggle");
+const menu = document.querySelector(".navbar__dropdown");
+
+botonUsuario.addEventListener("click", () => {
+    menu.classList.toggle("activo");
+});
+document.addEventListener("click", (evento) => {
+    if (
+        !botonUsuario.contains(evento.target) &&
+        !menu.contains(evento.target)
+    ) {
+        menu.classList.remove("activo");
+    }
+});
+
+const btnCerrarSesion =
+document.getElementById("btnCerrarSesion");
+btnCerrarSesion.addEventListener("click", cerrarSesion);
+function cerrarSesion() {
+    localStorage.removeItem("token"); //borramos el token 
+    localStorage.removeItem("usuario");
+    window.location.href = "login.html";
+
+}
+
 async function obtenerLibro(idLibro) {
     const respuesta = await fetch(
         `https://www.googleapis.com/books/v1/volumes/${idLibro}?key=AIzaSyCCBbzjpNC-4rG4Lvti2YUnocS9Q4uEt0w`
