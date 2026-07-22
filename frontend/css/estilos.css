@@ -438,7 +438,6 @@ body {
   border-radius: 0; 
 }
 
-/* enlaces de imagenes */
 .categoriaCard__icono--novelas {
   background-image: url('../assets/iconos/libro_icono.png');
 }
@@ -649,7 +648,7 @@ body {
   cursor: pointer;
 }
  
-/* Paginación (JS inserta los botones de página aquí dentro) */
+
 .paginacion {
   display: flex;
   justify-content: center;
@@ -696,7 +695,7 @@ body {
   width: 100%;
   border-radius: 6px;
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
-  background-color: #d9e2d3; /* placeholder mientras carga la portada real */
+  background-color: #d9e2d3;
 }
  
 .detalleLibro__titulo {
@@ -761,7 +760,6 @@ body {
   border-color: #ffffff;
 }
  
-/* ---------- Sinopsis ---------- */
 .detalleLibro__sinopsis {
   margin: 0 40px 40px;
   padding-top: 24px;
@@ -1166,7 +1164,6 @@ body {
   color: #6f7c68;
 }
  
-/* ---------- Contador ---------- */
 .favoritos__contador {
   display: flex;
   align-items: center;
@@ -1181,7 +1178,7 @@ body {
   color: #c0392b;
 }
  
-/* ---------- Tarjetas de favoritos ---------- */
+
 #contenedorFavoritos {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -1235,7 +1232,7 @@ body {
   transform: scale(1.08);
 }
  
-/* ---------- Estado vacío ---------- */
+
 .favoritosVacio {
   display: flex;
   flex-direction: column;
@@ -1267,4 +1264,65 @@ body {
  
 .favoritosVacio__btn:hover {
   background-color: #5aa038;
+}
+.btn-comprar {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: orange;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;     
+  font-size: 1rem;
+  font-weight: 500;    
+  font-family: inherit;
+  text-decoration: none; 
+  padding: 13px 24px; 
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+}
+
+.btn-comprar:hover {
+  filter: brightness(0.9); 
+}
+
+.btn-comprar:active {
+    transform: scale(0.98);
+}
+
+.btn-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent; 
+  color: #555555;               
+  border: 1px solid #cccccc;    
+  border-radius: 6px;
+  
+  font-size: 1rem;       
+  font-weight: 500;
+  font-family: inherit;
+  padding: 12px 24px;     
+  
+  text-decoration: none; 
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-preview:hover {
+  background-color: #f5f5f5; 
+  color: #222222;            
+  border-color: #999999;    
+}
+
+.btn-preview:active {
+  transform: scale(0.98);
+}
+
+#contenedorCompra {
+  display: flex;
+  gap: 12px; 
 }

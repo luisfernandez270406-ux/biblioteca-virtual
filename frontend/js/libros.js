@@ -3,7 +3,7 @@ function crearTarjeta(libro){
     const autor = libro.volumeInfo.authors?.join(", ") || "Autor desconocido";
     const portada = libro.volumeInfo.imageLinks?.thumbnail || "../assets/imagenes/sinPortada.png";
     return `
-        <div class="libroCard">
+        <div class="libroCard" data-id="${libro.id}">
             <img
                 class="libroCard__portada"
                 src="${portada}"
