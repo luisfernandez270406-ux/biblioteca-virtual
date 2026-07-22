@@ -104,5 +104,28 @@ const verificarFavorito = async (req, res) => {
         });
     }
 }
+const eliminarFavoritoLibro = async (req, res) => {
 
-module.exports = {agregarFavoritos,obtenerFavoritos,eliminarFavoritos,verificarFavorito};
+    try {
+        const { libroId } = req.params;
+        const favorito = await Favorito.findOneAndDelete({
+            usuario: req.usuario.id,
+            libroId
+        });
+        if (!favorito) {
+            return res.status(404).json({
+                mensaje: "Favorito no encontrado."
+            });
+        }
+        res.json({
+            mensaje: "Favorito eliminado."
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            mensaje: "Error interno."
+        });
+    }
+};
+
+module.exports = {agregarFavoritos,obtenerFavoritos,eliminarFavoritos,verificarFavorito,eliminarFavoritoLibro};

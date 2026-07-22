@@ -1,4 +1,8 @@
-
+const usuario = JSON.parse(localStorage.getItem("usuario"));
+if(usuario){
+document.getElementById("nombreUsuario").textContent =
+    usuario.nombreUsuario;
+ }
 async function obtenerLibro(idLibro) {
     const respuesta = await fetch(
         `https://www.googleapis.com/books/v1/volumes/${idLibro}?key=AIzaSyCCBbzjpNC-4rG4Lvti2YUnocS9Q4uEt0w`
@@ -58,16 +62,38 @@ function mostrarLibro(libro) {
     contenedorCompra.innerHTML = htmlBotones;
     const btnFavorito = document.querySelector(".detalleLibro__btnFavorito");// para guardar fav 
     let favoritoId = null;
+    let esFavorito = false;
     verificarFavorito(libro.id).then((datos) => {
+
     favoritoId = datos.favoritoId;
-    if (datos.esFavorito) {
+    esFavorito = datos.esFavorito;
+
+    if (esFavorito) {
+
         btnFavorito.textContent = "En favoritos";
+
     } else {
+
         btnFavorito.textContent = "Agregar a favoritos";
+
     }
 });
 
-btnFavorito.onclick = () => agregarAFavoritos(libro);
+btnFavorito.onclick = async () => {
+    if (esFavorito) {
+        const eliminado = await eliminarFavorito(libro.id);
+
+        if (eliminado) {
+            esFavorito = false;
+            btnFavorito.textContent = "Agregar a favoritos";
+        }
+    } else {
+        await agregarAFavoritos(libro);
+
+        esFavorito = true;
+        btnFavorito.textContent = "En favoritos";
+    }
+};
 }
 
 const parametros = new URLSearchParams(window.location.search);
@@ -103,7 +129,8 @@ async function agregarAFavoritos(libro) {
      return;
 
     }
-    alert(datos.mensaje);
+    esFavorito = true;
+    btnFavorito.textContent = "En favoritos";
 }
 async function verificarFavorito(libroId) {
 
@@ -123,6 +150,36 @@ async function verificarFavorito(libroId) {
     return datos;
 
 }
+async function eliminarFavorito(libroId) {
+
+    const token = localStorage.getItem("token");
+
+    const respuesta = await fetch(
+        `http://localhost:3000/api/favoritos/libro/${libroId}`,
+        {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+    );
+
+    const datos = await respuesta.json();
+
+    console.log(datos);
+
+    if (!respuesta.ok) {
+
+        alert(datos.mensaje);
+
+        return false;
+
+    }
+
+    return true;
+
+}
+
 
 
 obtenerLibro(idLibro);

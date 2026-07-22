@@ -1342,3 +1342,8 @@ body {
   display: flex;
   gap: 12px; 
 }
+.libroCard__enlace {
+    text-decoration: none; 
+    color: inherit;        
+    display: block;        
+}
