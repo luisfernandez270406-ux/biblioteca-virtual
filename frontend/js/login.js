@@ -27,6 +27,7 @@ async function iniciarSesion(evento) {
     const datos = await respuesta.json();
     if (!respuesta.ok) {
         mensaje.textContent = datos.mensaje;
+        mensaje.style.color = "red";
         console.log(datos.mensaje);
         return;// esto detiene la funcion si hay un error 
     }
@@ -37,5 +38,6 @@ async function iniciarSesion(evento) {
    }
    catch(error) {
     mensaje.textContent ="No se pudo conectar con el servidor.";
+    mensaje.style.color = "red";
     }
 }
